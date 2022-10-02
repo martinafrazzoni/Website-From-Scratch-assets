@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
+
+* {
+  box-sizing: border-box;
+  transition: all ease-in-out 250ms;
+}
+
+body {
+  margin: 0 auto;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+/* header */
+header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 1em 1em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.footer_paragraph {
+  margin: 0;
+}
+
+.container {
+  max-width: 70em;
+  width: 93%;
+  margin: 0 auto;
+}
+
+.clearfix::after,
+section::after,
+footer::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* nav */
+nav {
+  padding: 0;
+  margin: 0;
+}
+
+nav ul {
+  margin-top: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin: 1em;
+}
+
+nav a {
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: .8rem;
+  padding: .5em;
+  color: #ffff;
+  /*with padding the clickable area is bigger*/
+}
+
+nav a:hover,
+nav a:focus {
+  opacity: .85;
+}
+
+/* home-hero */
+.home-hero {
+  background-image: url(img/hero-bg.jpg);
+  padding: 6.75em;
+  background-size: cover;
+  background-position: center;
+  color: #ffff;
+  /* parallax effect: with background-attachment: fixed it locks the background in place.*/
+  background-attachment: fixed;
+}
+
+/* typography */
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1em;
+  font-weight: 900;
+  margin-top: 1em;
+}
+
+.title span {
+  font-weight: 300;
+  display: block;
+  font-size: .8em;
+}
+
+/*.title-cta{
+  margin: 0 0 .5em;
+}*/
+.unstyled-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.accent {
+  color: #00ff6c;
+  position: absolute;
+  top: .2em;
+  left: 3.6em;
+}
+
+.button {
+  display: inline-block;
+  font-size: 1.3rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-style: solid;
+  border-width: thin;
+  padding: .3em 1.75em;
+}
+
+@media (min-width: 60rem) {
+  .logo {
+    float: left;
+  }
+
+  nav {
+    float: right;
+  }
+
+  .home-hero {
+    height: 100vh;
+    padding-top: 35vh;
+  }
+
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .button {
+    font-size: 1.5rem;
+  }
+}
+
+.button-small {
+  font-size: .9rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: lowercase;
+  border-style: solid;
+  border-width: thin;
+  padding: .3em 1em;
+}
+
+.button-accent {
+  color: #00ff6c;
+  border-color: #00ff6c
+}
+
+.button-accent:hover,
+.button-accent:focus {
+  background: #00ff6c;
+  color: #232323;
+}
+
+.button-dark {
+  color: #232323;
+  border-color: #232323;
+}
+
+.button-dark:hover,
+.button-dark:focus {
+  background: #232323;
+  color: #00ff6c;
+}
+
+/*parallax*/
+.parallax--bg,
+.parallax--box {
+  transition: initial;
+  /* it overwrite the transition in my universal selector, and reset it to the initial property which is none.*/
+  /* TODO: min. 10:59.*/
+}
+
+.home-about-textbox {
+  background-color: #232323;
+  color: #ffff;
+  padding: 3em 3.5em;
+  width: 109%;
+  margin-left: -5vw;
+  /*per mettere il bordo verde flash uso outline e la posso settare all'interno (inward) oppure all'estero (outward)*/
+  outline: 2px solid #00ff6c;
+  outline-offset: -2.5em;
+  position: relative;
+}
+
+.home-about-textbox h1 {
+  color: #00ff6c;
+  position: absolute;
+  top: .17em;
+  background: #232323;
+  padding: 0 .25em;
+  left: 50%;
+  /*its moving to the left of 50%*. But because it's not perfectly centered we have to use transform:translate(X). I'm moving it horizontally. By just saying left: 50% it center only the "W" of who we are and not the whole line. */
+  transform: translateX(-50%);
+  /* Its moving it to the center of its parent. */
+}
+
+@media (min-width: 25rem) {
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  .home-about-textbox h1 {
+    padding: 0 .325em;
+  }
+}
+
+@media (min-width: 60rem) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .home-about {
+    background-image: url(img/who-we-are.jpg);
+    background-repeat: no-repeat;
+    padding: 3em;
+  }
+
+  .home-about-textbox {
+    width: 40%;
+    top: -7em;
+    /* in this way my text box shows up from the bottom*/
+    text-align: left;
+    margin-left: -5vw;
+    box-shadow: 0 0 3em 0 rgba(0, 0, 0, .3);
+    line-height: 1.4;
+    /* this is the shadow around my box*/
+  }
+}
+
+/*portfolio*/
+.portfolio {
+  margin: 3em 0 0;
+  /* i gave some space at the top*/
+}
+
+/* now i want to move my figcaption on top of the picture*/
+.portfolio-item {
+  margin: 0;
+  position: relative;
+  /* POSITION: RELATIVE;
+  The element is positioned according to the normal flow of the document, and then offset relative to itself based on the values of top, right, bottom, and left. The offset does not affect the position of any other elements; thus, the space given for the element in the page layout is the same as if position were static.
+
+  This value creates a new stacking context when the value of z-index is not auto. Its effect on table-*-group, table-row, table-column, table-cell, and table-caption elements is undefined.*/
+}
+
+.portfolio-item img {
+  display: block;
+  /* in this way the images stick together without the white space beneath, because they are inline-block by default. is the image is all by itself inside a div i can use display: block*/
+}
+
+.portfolio-description {
+  position: absolute;
+  /* POSTION: ABSOLUTE;
+  The element is removed from the normal document flow, and no space is created for the element in the page layout. It is positioned relative to its closest positioned ancestor, if any; otherwise, it is placed relative to the initial containing block. Its final position is determined by the values of top, right, bottom, and left.
+
+  This value creates a new stacking context when the value of z-index is not auto. The margins of absolutely positioned boxes do not collapse with other margins.*/
+  z-index: 100;
+  /*Z-INDEX
+  sets the z-order of a positioned element and its descendants or flex items. Overlapping elements with a larger z-index cover those with a smaller one.
+  For a positioned box (that is, one with any position other than static), the z-index property specifies:
+  - The stack level of the box in the current stacking context.
+  -Whether the box establishes a local stacking context.*/
+  bottom: 0em;
+  left: 0em;
+  right: 0em;
+  color: white;
+  background-color: rgba(0, 0, 0, .65);
+  padding-bottom: 2em;
+}
+
+/* media queries for responsiveness*/
+@media (min-width:37rem) {
+  .portfolio-item {
+    width: 50%;
+    float: left;
+    /* in this way i have two columns*/
+  }
+}
+
+/* in the bigger screen-sizes i want three columns*/
+@media (min-width: 60rem) {
+  .portfolio-item {
+    width: 33.33334%;
+  }
+
+  /* i also want my port.description to be off at the bigger screen sizes*/
+  .portfolio-description {
+    display: none;
+  }
+
+  .portfolio-item:hover .portfolio-description {
+    display: block;
+  }
+}
+
+/*CTA*/
+.cta {
+  background-color: #00ff6c;
+  padding: 5em;
+}
+
+/*footer*/
+footer {
+  background: #232323;
+  color: #fff;
+  padding: 5rem;
+}
+
+/*.col-1{
+  margin-top: 1em;
+  padding: .5em;
+}*/
+@media(min-width: 850px) {
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .footer_paragraph {
+    text-align: left;
+    max-width: 87%;
+    line-height: 1.6;
+  }
+
+  .big_col {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .col-1 {
+    margin: 0 1em;
+    padding: 0 .7em;
+  }
+}
+
+@media(max-width: 850px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer_paragraph {
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 2em;
+    line-height: 1.3em;
+  }
+
+  .big_col {
+    display: flex;
+    gap: 2em;
+    margin: 0;
+    padding: 1.7em;
+  }
+
+  .col-1 {
+    line-height: 1.3;
+  }
+}
+
+/* part 5 */
